@@ -29,8 +29,17 @@ public class Like {
     }
 
     public void like(LikeCommand likeCommand) {
-        //implement business logic here:
-
+        //implement business logic here: Create new Like if there`s no topicId or load the existing entity with the topicId. and add the userId and likes.
+        Like like = repository().findByTopicId(likeCommand.getTopicId());
+        if (like == null) {
+            like = new Like();
+            like.setTopicId(likeCommand.getTopicId());
+        }
+        like.setUserId(likeCommand.getUserId());
+        like.setLikes(likeCommand.getLikes());
+        repository().save(like);
+    
+        // publish event to the external world
         LikeLiked likeLiked = new LikeLiked(this);
         likeLiked.publishAfterCommit();
     }
