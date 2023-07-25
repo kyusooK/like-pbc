@@ -10,8 +10,6 @@ public class LikeCommand {
 
     @Id
     //@GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
-
     private String topicId;
     private String userId;
     private Boolean likes;
