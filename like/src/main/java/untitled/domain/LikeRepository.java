@@ -6,4 +6,6 @@ import untitled.domain.*;
 
 @RepositoryRestResource(collectionResourceRel = "likes", path = "likes")
 public interface LikeRepository
-    extends PagingAndSortingRepository<Like, String> {}
+    extends PagingAndSortingRepository<Like, String> {
+
+    Like findByTopicId(String topicId);}
