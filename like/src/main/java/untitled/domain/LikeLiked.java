@@ -9,7 +9,6 @@ import untitled.infra.AbstractEvent;
 @ToString
 public class LikeLiked extends AbstractEvent {
 
-    private Long id;
     private String topicId;
     private String userId;
     private Boolean likes;
